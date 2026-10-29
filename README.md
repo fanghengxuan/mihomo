@@ -18,6 +18,20 @@
   </a>
 </p>
 
+
+## 精简构建（本 fork 提供）
+
+低内存设备（路由器 / 软路由 / 小内存 VPS）可以用 slim 构建：
+
+```bash
+./scripts/build-slim.sh                                  # 默认 linux-armv7
+TARGETS="linux-armv7 linux-arm64 linux-amd64" ./scripts/build-slim.sh
+```
+
+默认标签：`with_low_memory,no_fake_tcp,no_tailscale,no_easytier,no_zerotier`（不启用 gVisor），
+`linux/armv7` 构建后约 34.8 MB，UPX 后约 7.9 MB。细节、影响范围与校验方法见
+[docs/slim-build.md](docs/slim-build.md)。
+
 ## Features
 
 - Local HTTP/HTTPS/SOCKS server with authentication support
